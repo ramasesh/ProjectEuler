@@ -1,0 +1,11 @@
+primes_to_check = {}
+
+for prime in testSieveEratosthenes.prime_numbers(100000000):
+    testNumber = prime-1
+    primes_to_check[prime] = True
+    for i in xrange(2,int(np.sqrt(testNumber))):
+        if testNumber % i == 0:
+            if (i + testNumber/i) not in primes_to_check:
+                break
+    else:
+        count += testNumber
